@@ -1,0 +1,49 @@
+1. How does logistic regression differ from linear regression?
+Linear regression predicts a continuous value.
+Logistic regression predicts the probability of a binary class using the sigmoid function.
+Logistic regression outputs values between 0 and 1 and uses a threshold (like 0.5) to classify.
+
+2. What is the sigmoid function?
+The sigmoid function is:
+                 σ(x) = 1 / (1 + e^(-x))
+It maps any real number to a value between 0 and 1, which can be interpreted as a probability.
+In logistic regression, it transforms the linear output into a probability of belonging to class 1.
+
+3. What is precision vs recall?
+Precision = TP / (TP + FP): Of all predicted positives, how many were actually positive?
+Recall = TP / (TP + FN): Of all actual positives, how many were correctly predicted?
+Precision is about quality of positives, recall is about coverage of actual positives.
+
+4. What is the ROC-AUC curve?
+ROC (Receiver Operating Characteristic) plots True Positive Rate (Recall) vs False Positive Rate.
+AUC (Area Under the Curve) is a single number summarizing the model’s ability to distinguish between classes.
+AUC = 1 is perfect, AUC = 0.5 is no better than random guessing.
+
+5. What is the confusion matrix?
+A 2x2 table showing:
+                            Predicted Positive	     Predicted Negative
+Actual Positive           	True Positive (TP)	    False Negative (FN)
+Actual Negative	            False Positive (FP)   	True Negative (TN)
+
+It helps visualize the types of prediction errors.
+
+6. What happens if classes are imbalanced?
+The model may be biased toward the majority class.
+Accuracy becomes misleading.
+You should use precision, recall, F1-score, or ROC-AUC, and consider resampling techniques (like SMOTE or undersampling).
+
+7. How do you choose the threshold?
+By default, it's 0.5, but you can adjust it based on:
+Business need (e.g., prioritize recall in cancer detection).
+Trade-off between precision and recall.
+Use plots like Precision-Recall vs Threshold or ROC Curve to guide the choice.
+
+8. Can logistic regression be used for multi-class problems?
+Yes. Though originally binary, logistic regression can handle multi-class classification using strategies like:
+One-vs-Rest (OvR) – default in scikit-learn.
+Multinomial Logistic Regression – with softmax instead of sigmoid.
+
+
+
+             * * * * *
+
